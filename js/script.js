@@ -56,11 +56,11 @@ const dispRepoInfo = function (repoData) {
     repoList.classList.remove("hide");
     for (let title of repoData) {
         let repoLists = document.createElement("li"); //<==create list item
-        repoLists.classList.add("repo");//<==add a class repo
+        repoLists.classList.add("repo"); //<==add a class repo
         repoLists.innerHTML = `<h3>${title.name}</h3>`
         repoList.append(repoLists);
         console
-        
+
     }
 };
 
@@ -100,6 +100,7 @@ const getSpecificRepo = async function (repoName) {
 const dispSpecificRepoInfo = function (repoInfo, languages) {
     // empty the HTML of the section with a class of “repo-data”
     repoData.innerHTML = "";
+    console.log(repoData);//<==test log for the values we will use
     //create a div to append the innerHTML
     const infoRepodiv = document.createElement("div");
     repoData.innerHTML =
@@ -108,36 +109,36 @@ const dispSpecificRepoInfo = function (repoInfo, languages) {
     <p>Default Branch: ${repoInfo.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
     <a class="visit" href="${repoInfo.url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
-
     repoData.append(infoRepodiv);
     // console.log(repoData.innerHTML);
-
     repoList.classList.add("hide");
     repoData.classList.remove("hide");
     filterInputs.classList.add("hide");
     viewRepoButton.classList.remove("hide");
 };
-
+//This is the back button
 viewRepoButton.addEventListener("click", function () {
-
     repoList.classList.remove("hide");
     repoData.classList.add("hide");
     filterInputs.classList.remove("hide");
     viewRepoButton.classList.add("hide");
-
 });
-// Event Listener for the input search box
+// Event Listener for the  search box
 filterInputs.addEventListener("input", function (e) {
     e.preventDefault();
-
-    let inputSearch = e.target.value;
-    lwrCase= inputSearch.toLowerCase();//<==lowercase value of the input search 
+    let inputSearch = e.target.value; //<==search text
+    const repos = document.querySelectorAll(".repo");
+    lwrCase = inputSearch.toLowerCase(); //<==lowercase value of the input search 
     // console.log(lwrCase);
-    console.log('New text is "' + lwrCase + '"');
-    const repo = document.querySelectorAll(".repo-lists");
-    console.log(repo);
-    // for (let repoItem of repo) {
-
-        
-    // }
+    // console.log('New text is "' + lwrCase + '"');//<==test log the input search
+    for (let repo of repos) {
+        let lwrInnerText = repo.innerText.toLowerCase();
+        if (!lwrInnerText.includes(lwrCase)) { //<==if search text does
+            // not match hide it.
+            repo.classList.add("hide");
+        } else {
+            repo.classList.remove("hide"); //<else there it's match
+            // show it.
+        }
+    }
 });
