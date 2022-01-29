@@ -9,7 +9,7 @@ const reposSection = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
 viewRepoButton = document.querySelector(".view-repos")
 //filter-repos class
-filterRepos = document.querySelector(".filter-repos");
+filterInputs = document.querySelector(".filter-repos");
 
 //API function to fetch API JSON Data
 const getRepos = async function () {
@@ -46,18 +46,21 @@ const fetchRepos = async function () {
     // console.log(repoData);
     //Function callback to disp the repo list
     dispRepoInfo(repoData);
-    filterRepos.classList.remove("hide");
+    filterInputs.classList.remove("hide"); //<==show search box
 };
 //Callback to function to fetch the repo data
 fetchRepos();
+
 //Display list items of the UL
 const dispRepoInfo = function (repoData) {
     repoList.classList.remove("hide");
     for (let title of repoData) {
         let repoLists = document.createElement("li"); //<==create list item
-        repoLists.classList.add("filter-repos");
+        repoLists.classList.add("repo");//<==add a class repo
         repoLists.innerHTML = `<h3>${title.name}</h3>`
         repoList.append(repoLists);
+        console
+        
     }
 };
 
@@ -105,23 +108,36 @@ const dispSpecificRepoInfo = function (repoInfo, languages) {
     <p>Default Branch: ${repoInfo.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
     <a class="visit" href="${repoInfo.url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
-    
+
     repoData.append(infoRepodiv);
     // console.log(repoData.innerHTML);
 
-     repoList.classList.add("hide");
-     repoData.classList.remove("hide");
-     filterRepos.classList.add("hide");
-     viewRepoButton.classList.remove("hide");
+    repoList.classList.add("hide");
+    repoData.classList.remove("hide");
+    filterInputs.classList.add("hide");
+    viewRepoButton.classList.remove("hide");
 };
 
-viewRepoButton.addEventListener("click",function(){
+viewRepoButton.addEventListener("click", function () {
 
     repoList.classList.remove("hide");
     repoData.classList.add("hide");
-    filterRepos.classList.remove("hide");
+    filterInputs.classList.remove("hide");
     viewRepoButton.classList.add("hide");
 
+});
+// Event Listener for the input search box
+filterInputs.addEventListener("input", function (e) {
+    e.preventDefault();
 
+    let inputSearch = e.target.value;
+    lwrCase= inputSearch.toLowerCase();//<==lowercase value of the input search 
+    // console.log(lwrCase);
+    console.log('New text is "' + lwrCase + '"');
+    const repo = document.querySelectorAll(".repo-lists");
+    console.log(repo);
+    // for (let repoItem of repo) {
 
+        
+    // }
 });
