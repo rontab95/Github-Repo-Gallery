@@ -1,7 +1,9 @@
 
 <h1><strong>GitHub Repo Gallery</strong></h1>
 
-<h2><strong>A collection of my Github repositories.</h2></strong>
+<h2><strong>A collection of my Github repositories.</h2></strong><br>
+
+<h2> Screenshot </h2>
 <img src = "https://github.com/rontab95/github-repo-gallery/blob/main/img/frontPage.PNG" alt ="project frontpage">
 
 <h3>FEATURES of this project</h3>
