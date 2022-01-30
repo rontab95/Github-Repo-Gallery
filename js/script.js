@@ -100,17 +100,18 @@ const getSpecificRepo = async function (repoName) {
 const dispSpecificRepoInfo = function (repoInfo, languages) {
     // empty the HTML of the section with a class of “repo-data”
     repoData.innerHTML = "";
-    console.log(repoData);//<==test log for the values we will use
+    // console.log(repoData);//<==test log for the values we will use
     //create a div to append the innerHTML
     const infoRepodiv = document.createElement("div");
+    // console.log(repoInfo);//<==where we will get the API endpoints
     repoData.innerHTML =
         `<h3>Name: ${repoInfo.name}</h3>
     <p>Description: ${repoInfo.description}</p>
     <p>Default Branch: ${repoInfo.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
-    <a class="visit" href="${repoInfo.url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
+    <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
     repoData.append(infoRepodiv);
-    // console.log(repoData.innerHTML);
+    // console.log(repoInfo);
     repoList.classList.add("hide");
     repoData.classList.remove("hide");
     filterInputs.classList.add("hide");
