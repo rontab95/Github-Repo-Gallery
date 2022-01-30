@@ -108,7 +108,7 @@ const dispSpecificRepoInfo = function (repoInfo, languages) {
     <p>Description: ${repoInfo.description}</p>
     <p>Default Branch: ${repoInfo.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
-    <a class="visit" href="${repoInfo.url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
+    <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
     repoData.append(infoRepodiv);
     // console.log(repoData.innerHTML);
     repoList.classList.add("hide");
