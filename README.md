@@ -23,6 +23,5 @@
     </ul>
   
 <h4> Credits and references: </h4>  
-<p>This project starter files was provided by SkillCrush as part of
-    the Break Into Tech Course.</p>
+<p>Project starter files by SkillCrush's Break Into Tech BootCamp.</p>
     
