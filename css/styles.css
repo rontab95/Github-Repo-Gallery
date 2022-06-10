@@ -80,7 +80,7 @@ h1 {
 h3 {
     width: 100%;
     text-align: center;
-    color: #f86d58;
+    color: #3b4ec1;
 }
 
 ul {
@@ -129,13 +129,14 @@ ul {
     align-items: center;
     width: 100%;
     padding-left: 5%;
+    font-family:monospace;
 }
 
 .user-info div p {
     width: 100%;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #9b8dc9;
+    border-bottom: 1px solid white;
     padding-bottom: 19px;
 }
 
@@ -144,7 +145,7 @@ ul {
     margin-top: 1em;
     padding: 1em;
     margin-bottom: 1em;
-    border: 2px solid #483978;
+    border: 2px solid #1826c1;
 }
 
 section.repo-data {
@@ -173,7 +174,7 @@ section.repo-data {
 .repo-list li {
     width: 90%;
     margin: 1em 0;
-    border: 1px solid #f86d58;
+    border: 1px solid #3b4ec1;
     padding: 0.5em;
 }
 
